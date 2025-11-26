@@ -69,8 +69,8 @@ class Year2024Day10 extends DaySolver {
     for (var row = 0; row < rows; row++) {
       for (var col = 0; col < cols; col++) {
         if (grid[row][col] == 0) {
-          final reachableNines = _findReachableNines(
-              grid, rows, cols, row, col);
+          final reachableNines =
+              _findReachableNines(grid, rows, cols, row, col);
           totalScore += reachableNines.length;
         }
       }
@@ -144,8 +144,8 @@ class Year2024Day10 extends DaySolver {
           nextCol >= 0 &&
           nextCol < cols &&
           grid[nextRow][nextCol] == nextHeight) {
-        _dfs(grid, rows, cols, nextRow, nextCol, nextHeight,
-            reachableNines, visited);
+        _dfs(grid, rows, cols, nextRow, nextCol, nextHeight, reachableNines,
+            visited);
       }
     }
   }
@@ -186,8 +186,7 @@ class Year2024Day10 extends DaySolver {
       for (var col = 0; col < cols; col++) {
         if (grid[row][col] == 0) {
           final memo = <({int row, int col, int height}), int>{};
-          final pathCount = _countPaths(
-              grid, rows, cols, row, col, 0, memo);
+          final pathCount = _countPaths(grid, rows, cols, row, col, 0, memo);
           totalRating += pathCount;
         }
       }
@@ -234,8 +233,8 @@ class Year2024Day10 extends DaySolver {
           nextCol >= 0 &&
           nextCol < cols &&
           grid[nextRow][nextCol] == nextHeight) {
-        pathCount += _countPaths(
-            grid, rows, cols, nextRow, nextCol, nextHeight, memo);
+        pathCount +=
+            _countPaths(grid, rows, cols, nextRow, nextCol, nextHeight, memo);
       }
     }
     memo[state] = pathCount;
