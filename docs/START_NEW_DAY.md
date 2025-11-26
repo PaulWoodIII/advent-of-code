@@ -1,0 +1,41 @@
+# Starting a New Day - Instructions
+
+This project provides a Dart-first solving of  Advent of Code puzzles with automation, benchmarking, and AI workflow support.
+
+This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzzle do the following tasks with the human developer's assistance
+
+
+1. Extract the day number from `--- Day X: Title ---` header.
+
+1. Name this `Chat Day X 2024` based on the year we are working on
+
+1. Confirm the year with the developer. If the year is not clear from context (puzzle source, conversation, or project state), ask the developer: "What year is this puzzle for?" Do not assume - always confirm before running any scripts.
+
+1. Review previous solutions in `lib/years/year2024/` or `lib/years/year2025/` depending on what year you are working on:
+   - `day01.dart` - number parsing
+   - `day02.dart` - list processing
+   - `day03.dart` - string processing
+   - `day04.dart` - grid/2D arrays
+   Reference the most similar day for patterns, please note that advent of code is a learning tool where new puzzles build on what has been learned in previous puzzles. Documentation in our solve code will help us develop future days faster. 
+
+1. Run scaffold: `dart tools/scaffold_day.dart [YEAR] X` (use the confirmed year, not a placeholder)
+   Creates solver, test, and input placeholder files. Follow the printed instructions (from scaffold output) to add inputs to the new example file.
+
+1. Implement `_solvePart1()` using patterns from similar previous days.
+
+1. Update test: Replace `'TODO'` in `test/years/year[YEAR]/dayXX_test.dart` with expected result from the puzzle example.
+
+1. Run tests and make edits until example passes: `dart test test/years/year[YEAR]/dayXX_test.dart`
+
+1. Once the example works as expected, ask the developer to add their specific input file into the new txt file in `data/inputs`
+
+1. Verify: `dart bin/aoc.dart --year [YEAR] --day X` where X is the current day and [YEAR] is the confirmed year.
+     Inform the developer of the solution result. Ask the developer for Part Two assuming a positive result.
+
+1. If the solution fails the developer will inform you of it and work with you to debug the solution, if not the developer will place Part Two into the conversation
+
+1. Run: `dart tools/scaffold_day.dart [YEAR] X --part2`, then implement `_solvePart2()` using the Part Two puzzle description. Keep each solve function separate so that our tests continue to work as expected.
+
+1. Inform the developer of our part two solution. 
+
+1. Review and document your work, tests, and files. Add documentation so that future days know what computer science concept was learned in this puzzle so future runs of this process can use a similar solution. This creates a great flywheel effect of learning and development.

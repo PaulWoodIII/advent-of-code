@@ -1,0 +1,36 @@
+# Dart/Flutter
+.dart_tool/
+.packages
+.pub/
+build/
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Coverage
+coverage/
+coverage_*/
+*.lcov
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
