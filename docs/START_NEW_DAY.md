@@ -19,13 +19,16 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 
 1. Confirm the year with the developer. If the year is not clear from context (puzzle source, conversation, or project state), ask the developer: "What year is this puzzle for?" Do not assume - always confirm before running any scripts.
 
-1. Create a Linear issue for this day:
-   - Title: `Day X: [Puzzle Title]` (extract title from puzzle header if available)
-   - Team: "PaulWoodWare"
-   - Project: "Advent of Code" (ensure the issue is linked to the correct GitHub repository: `https://github.com/PaulWoodIII/advent-of-code.git`)
-   - Description: Include the puzzle description or link to the puzzle page
-   - Assign to: "me" (the developer)
-   - Status: Will default to "Todo"
+1. Search Linear for an existing issue for this day:
+   - Search Linear issues in the "Advent of Code" project for a title matching `Day X` (where X is the day number)
+   - If an existing issue is found, use that issue ID and skip to step 5
+   - If no existing issue is found, create a new Linear issue:
+     - Title: `Day X` (just the day number, no puzzle title)
+     - Team: "PaulWoodWare"
+     - Project: "Advent of Code" (ensure the issue is linked to the correct GitHub repository: `https://github.com/PaulWoodIII/advent-of-code.git`)
+     - Description: Include the puzzle description or link to the puzzle page
+     - Assign to: "me" (the developer)
+     - Status: Will default to "Todo"
    - Save the issue ID for status updates throughout the workflow
 
 1. Review previous solutions in `lib/years/year2024/` or `lib/years/year2025/` depending on what year you are working on:
@@ -65,7 +68,7 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 1. After the developer confirms the day's work is complete, commit and push the changes:
    - Stage all changes: `git add .`
    - Write a thoughtful commit message focused on Day X that includes:
-     - The day number and puzzle title
+     - The day number and puzzle title (extracted from puzzle description)
      - Key algorithms or concepts used
      - Brief summary of the solution approach
      - **Important**: Do NOT include the actual solution values (answer numbers) in the commit message
