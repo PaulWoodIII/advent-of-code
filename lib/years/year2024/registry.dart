@@ -12,6 +12,7 @@ import 'day10.dart';
 import 'day11.dart';
 import 'day12.dart';
 import 'day13.dart';
+import 'day14.dart';
 
 void registerYear2024(SolverRegistry registry) {
   registry
@@ -27,5 +28,6 @@ void registerYear2024(SolverRegistry registry) {
     ..addSolver(Year2024Day10())
     ..addSolver(Year2024Day11())
     ..addSolver(Year2024Day12())
-    ..addSolver(Year2024Day13());
+    ..addSolver(Year2024Day13())
+    ..addSolver(Year2024Day14());
 }
