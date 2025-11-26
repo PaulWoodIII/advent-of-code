@@ -65,6 +65,17 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 
 1. Review and document your work, tests, and files. Add documentation so that future days know what computer science concept was learned in this puzzle so future runs of this process can use a similar solution. This creates a great flywheel effect of learning and development.
 
+1. Create a blog post in `docs/dayXX_blog_post.md` (where XX is the day number with zero-padding):
+   - Write for an audience who may be new to Dart and is following along with Advent of Code
+   - Explain the problem in an accessible way
+   - Show the naive approach (if applicable) and why it works or fails
+   - Explain the key insights and algorithm clearly
+   - Highlight Dart language features used in the solution
+   - Include code examples with explanations
+   - Discuss complexity analysis and real-world applications
+   - Reference the full solution code at the end
+   - Follow the format of existing blog posts (e.g., `docs/day11_blog_post.md`, `docs/day12_blog_post.md`)
+
 1. After the developer confirms the day's work is complete, commit and push the changes:
    - Stage all changes: `git add .`
    - Write a thoughtful commit message focused on Day X that includes:
