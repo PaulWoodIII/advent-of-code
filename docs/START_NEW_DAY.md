@@ -2,6 +2,14 @@
 
 This project provides a Dart-first solving of  Advent of Code puzzles with automation, benchmarking, and AI workflow support.
 
+## Project Details
+
+- **GitHub Repository**: `https://github.com/PaulWoodIII/advent-of-code.git`
+- **Linear Team**: `PaulWoodWare`
+- **Linear Project**: `Advent of Code`
+
+**Important**: When creating or updating Linear issues, ensure they are linked to the correct GitHub repository above to prevent misattribution to other repositories.
+
 This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzzle do the following tasks with the human developer's assistance
 
 
@@ -14,6 +22,7 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 1. Create a Linear issue for this day:
    - Title: `Day X: [Puzzle Title]` (extract title from puzzle header if available)
    - Team: "PaulWoodWare"
+   - Project: "Advent of Code" (ensure the issue is linked to the correct GitHub repository: `https://github.com/PaulWoodIII/advent-of-code.git`)
    - Description: Include the puzzle description or link to the puzzle page
    - Assign to: "me" (the developer)
    - Status: Will default to "Todo"
