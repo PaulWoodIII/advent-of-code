@@ -105,7 +105,7 @@ Future<void> _scaffoldPart1Files(
 ) async {
   final examplePart1File =
       File('${inputDir.path}/day_${dayStr}_example_part1.txt');
-  final part1File = File('${inputDir.path}/day_${dayStr}_part1.txt');
+  final inputFile = File('${inputDir.path}/day_${dayStr}.txt');
 
   if (!await examplePart1File.exists()) {
     await examplePart1File.create();
@@ -114,15 +114,16 @@ Future<void> _scaffoldPart1Files(
         '  Add the example input from part 1 of the puzzle prompt to this file');
   }
 
-  if (!await part1File.exists()) {
-    await part1File.create();
-    print('Created placeholder: ${part1File.path}');
-    print('  Add your puzzle input for part 1 to this file');
+  if (!await inputFile.exists()) {
+    await inputFile.create();
+    print('Created placeholder: ${inputFile.path}');
+    print(
+        '  Add your puzzle input to this file (used by both part 1 and part 2)');
   }
 
   print('\nPart 1 scaffolding complete! Next steps:');
   print('1. Add the example input from part 1 to ${examplePart1File.path}');
-  print('2. Add your puzzle input for part 1 to ${part1File.path}');
+  print('2. Add your puzzle input to ${inputFile.path}');
   print('3. Implement _solvePart1() in lib/years/year$year/day$dayStr.dart');
   print(
       '4. Update test expectations in test/years/year$year/day${dayStr}_test.dart');
@@ -140,7 +141,6 @@ Future<void> _scaffoldPart2Files(
 ) async {
   final examplePart2File =
       File('${inputDir.path}/day_${dayStr}_example_part2.txt');
-  final part2File = File('${inputDir.path}/day_${dayStr}_part2.txt');
 
   if (!await examplePart2File.exists()) {
     await examplePart2File.create();
@@ -151,23 +151,10 @@ Future<void> _scaffoldPart2Files(
     print('File already exists: ${examplePart2File.path}');
   }
 
-  // Note: Part 2 typically uses the same input as part 1, so part2 file is optional
-  // The system will automatically fall back to part1 if part2 doesn't exist
-  if (!await part2File.exists()) {
-    await part2File.create();
-    print('Created placeholder: ${part2File.path}');
-    print('  Note: Part 2 typically uses the same input as part 1.');
-    print(
-        '  If they are the same, you can leave this empty - the system will use part1 input.');
-    print('  Only add content here if part 2 uses different input (rare).');
-  } else {
-    print('File already exists: ${part2File.path}');
-  }
-
   print('\nPart 2 scaffolding complete! Next steps:');
   print('1. Add the example input from part 2 to ${examplePart2File.path}');
   print(
-      '2. Part 2 will use part1 input by default (no action needed unless different)');
+      '2. Part 2 uses the same input file as part 1 (day_${dayStr}.txt) - no action needed');
   print('3. Implement _solvePart2() in lib/years/year$year/day$dayStr.dart');
   print('4. Update unit tests with part 2 example expectations');
 }
@@ -298,17 +285,8 @@ void main() {
             inputType: InputType.part2,
           );
         } on FileSystemException {
-          // Part 2 typically uses the same input as part 1 - fall back to part1
-          try {
-            input = inputLoader.loadLines(
-              year: $year,
-              day: $day,
-              inputType: InputType.part1,
-            );
-          } on FileSystemException {
-            // Part 1 input may not exist yet
-            return;
-          }
+          // Input file may not exist yet
+          return;
         }
         final result = solver.solvePart2(input);
         expect(result, isNotEmpty);

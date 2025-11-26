@@ -116,13 +116,14 @@ class InputLoader {
     required InputType inputType,
   }) {
     final dayStr = day.toString().padLeft(2, '0');
-    final suffix = switch (inputType) {
-      InputType.examplePart1 => 'example_part1',
-      InputType.examplePart2 => 'example_part2',
-      InputType.part1 => 'part1',
-      InputType.part2 => 'part2',
+    return switch (inputType) {
+      InputType.examplePart1 =>
+        '${_root.path}/data/inputs/$year/day_${dayStr}_example_part1.txt',
+      InputType.examplePart2 =>
+        '${_root.path}/data/inputs/$year/day_${dayStr}_example_part2.txt',
+      InputType.part1 || InputType.part2 =>
+        '${_root.path}/data/inputs/$year/day_${dayStr}.txt',
     };
-    return '${_root.path}/data/inputs/$year/day_${dayStr}_$suffix.txt';
   }
 
   String _key(int year, int day, InputType inputType) =>

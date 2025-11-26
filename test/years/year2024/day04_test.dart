@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:aoc_workspace/core/input_loader.dart';
 import 'package:aoc_workspace/years/year2024/day04.dart';
 import 'package:test/test.dart';
@@ -258,13 +260,9 @@ void main() {
             day: 4,
             inputType: InputType.part2,
           );
-        } catch (e) {
-          // Part 2 typically uses the same input as part 1 - fall back to part1
-          input = inputLoader.loadLines(
-            year: 2024,
-            day: 4,
-            inputType: InputType.part1,
-          );
+        } on FileSystemException {
+          // Input file may not exist yet
+          return;
         }
         final result = solver.solvePart2(input);
         expect(result, isNotEmpty);

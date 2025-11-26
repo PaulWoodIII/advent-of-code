@@ -50,17 +50,16 @@ class SolverRunner {
       throw StateError('No solver registered for $year day $day.');
     }
 
-    final part1Lines = _loader.loadLines(
+    final inputLines = _loader.loadLines(
       year: year,
       day: day,
       inputType: InputType.part1,
     );
-    final part2Lines = _loadPart2Input(year: year, day: day);
 
     if (benchmark) {
       await _runBenchmark(
         solver: solver,
-        input: part1Lines,
+        input: inputLines,
         iterations: benchmarkIterations,
         includeWarmup: !skipWarmup,
         outputFormat: outputFormat,
@@ -73,12 +72,12 @@ class SolverRunner {
     }
 
     final stopwatch = Stopwatch()..start();
-    final part1 = await Future.value(solver.solvePart1(part1Lines));
+    final part1 = await Future.value(solver.solvePart1(inputLines));
     final part1Time = stopwatch.elapsed;
     stopwatch.reset();
 
     stopwatch.start();
-    final part2 = await Future.value(solver.solvePart2(part2Lines));
+    final part2 = await Future.value(solver.solvePart2(inputLines));
     final part2Time = stopwatch.elapsed;
     stopwatch.stop();
 
@@ -161,25 +160,6 @@ class SolverRunner {
       return '${duration.inMilliseconds}ms';
     } else {
       return '${duration.inSeconds}s ${duration.inMilliseconds % 1000}ms';
-    }
-  }
-
-  /// Loads input for part 2, falling back to part1 if part2 doesn't exist.
-  /// In Advent of Code, part 1 and part 2 typically use the same input data.
-  List<String> _loadPart2Input({required int year, required int day}) {
-    try {
-      return _loader.loadLines(
-        year: year,
-        day: day,
-        inputType: InputType.part2,
-      );
-    } on FileSystemException {
-      // Part 2 typically uses the same input as part 1
-      return _loader.loadLines(
-        year: year,
-        day: day,
-        inputType: InputType.part1,
-      );
     }
   }
 }
