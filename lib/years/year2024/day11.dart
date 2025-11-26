@@ -133,11 +133,8 @@ class Year2024Day11 extends DaySolver {
       return '0';
     }
     // Parse initial stones and count frequencies
-    final initialStones = input[0]
-        .trim()
-        .split(RegExp(r'\s+'))
-        .map((s) => int.parse(s))
-        .toList();
+    final initialStones =
+        input[0].trim().split(RegExp(r'\s+')).map((s) => int.parse(s)).toList();
     var frequencies = <int, int>{};
     for (final stone in initialStones) {
       frequencies[stone] = (frequencies[stone] ?? 0) + 1;
