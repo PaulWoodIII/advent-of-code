@@ -39,3 +39,13 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 1. Inform the developer of our part two solution. 
 
 1. Review and document your work, tests, and files. Add documentation so that future days know what computer science concept was learned in this puzzle so future runs of this process can use a similar solution. This creates a great flywheel effect of learning and development.
+
+1. After the developer confirms the day's work is complete, commit and push the changes:
+   - Stage all changes: `git add .`
+   - Write a thoughtful commit message focused on Day X that includes:
+     - The day number and puzzle title
+     - Key algorithms or concepts used
+     - Brief summary of the solution approach
+     - Example: `git commit -m "Day X: Puzzle Title - Algorithm/Concept Used\n\nBrief description of solution approach and key insights."`
+   - Push to GitHub: `git push origin main`
+   - Confirm the push was successful and provide the commit hash to the developer.
