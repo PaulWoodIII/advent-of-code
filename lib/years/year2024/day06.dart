@@ -87,10 +87,7 @@ class Year2024Day06 extends DaySolver {
           nextCol = currentCol - 1;
           break;
       }
-      if (nextRow < 0 ||
-          nextRow >= rows ||
-          nextCol < 0 ||
-          nextCol >= cols) {
+      if (nextRow < 0 || nextRow >= rows || nextCol < 0 || nextCol >= cols) {
         break;
       }
       if (grid[nextRow][nextCol] == '#') {
@@ -142,9 +139,8 @@ class Year2024Day06 extends DaySolver {
   /// Only positions on or adjacent to this path can affect the guard's route.
   ///
   /// Returns a Set of (row, col) positions visited.
-  Set<({int row, int col})> _getOriginalPath(
-      List<List<String>> grid, int rows, int cols, int startRow, int startCol,
-      int startDirection) {
+  Set<({int row, int col})> _getOriginalPath(List<List<String>> grid, int rows,
+      int cols, int startRow, int startCol, int startDirection) {
     final path = <({int row, int col})>{};
     var currentRow = startRow;
     var currentCol = startCol;
@@ -167,10 +163,7 @@ class Year2024Day06 extends DaySolver {
           nextCol = currentCol - 1;
           break;
       }
-      if (nextRow < 0 ||
-          nextRow >= rows ||
-          nextCol < 0 ||
-          nextCol >= cols) {
+      if (nextRow < 0 || nextRow >= rows || nextCol < 0 || nextCol >= cols) {
         break;
       }
       if (grid[nextRow][nextCol] == '#') {
@@ -195,8 +188,12 @@ class Year2024Day06 extends DaySolver {
   ///
   /// Returns a Set of candidate (row, col) positions to test.
   Set<({int row, int col})> _getCandidatePositions(
-      Set<({int row, int col})> originalPath, List<List<String>> grid,
-      int rows, int cols, int startRow, int startCol) {
+      Set<({int row, int col})> originalPath,
+      List<List<String>> grid,
+      int rows,
+      int cols,
+      int startRow,
+      int startCol) {
     final candidates = <({int row, int col})>{};
     for (final pos in originalPath) {
       if (pos.row == startRow && pos.col == startCol) {
@@ -266,8 +263,14 @@ class Year2024Day06 extends DaySolver {
   ///
   /// Time complexity: O(rows * cols) worst case per test
   /// Space complexity: O(rows * cols) for visited states set
-  bool _causesLoop(List<List<String>> processedGrid, int rows, int cols,
-      int startRow, int startCol, int startDirection, int obstacleRow,
+  bool _causesLoop(
+      List<List<String>> processedGrid,
+      int rows,
+      int cols,
+      int startRow,
+      int startCol,
+      int startDirection,
+      int obstacleRow,
       int obstacleCol) {
     final originalCell = processedGrid[obstacleRow][obstacleCol];
     processedGrid[obstacleRow][obstacleCol] = '#';
@@ -275,7 +278,8 @@ class Year2024Day06 extends DaySolver {
     var currentRow = startRow;
     var currentCol = startCol;
     var currentDirection = startDirection;
-    visitedStates.add((row: currentRow, col: currentCol, direction: currentDirection));
+    visitedStates
+        .add((row: currentRow, col: currentCol, direction: currentDirection));
     final maxIterations = rows * cols * 4;
     var iterations = 0;
     while (iterations < maxIterations) {
@@ -296,10 +300,7 @@ class Year2024Day06 extends DaySolver {
           nextCol = currentCol - 1;
           break;
       }
-      if (nextRow < 0 ||
-          nextRow >= rows ||
-          nextCol < 0 ||
-          nextCol >= cols) {
+      if (nextRow < 0 || nextRow >= rows || nextCol < 0 || nextCol >= cols) {
         processedGrid[obstacleRow][obstacleCol] = originalCell;
         return false;
       }
@@ -309,7 +310,8 @@ class Year2024Day06 extends DaySolver {
         currentRow = nextRow;
         currentCol = nextCol;
       }
-      final state = (row: currentRow, col: currentCol, direction: currentDirection);
+      final state =
+          (row: currentRow, col: currentCol, direction: currentDirection);
       if (visitedStates.contains(state)) {
         processedGrid[obstacleRow][obstacleCol] = originalCell;
         return true;

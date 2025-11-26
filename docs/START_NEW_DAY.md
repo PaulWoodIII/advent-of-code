@@ -11,6 +11,14 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 
 1. Confirm the year with the developer. If the year is not clear from context (puzzle source, conversation, or project state), ask the developer: "What year is this puzzle for?" Do not assume - always confirm before running any scripts.
 
+1. Create a Linear issue for this day:
+   - Title: `Day X: [Puzzle Title]` (extract title from puzzle header if available)
+   - Team: "PaulWoodWare"
+   - Description: Include the puzzle description or link to the puzzle page
+   - Assign to: "me" (the developer)
+   - Status: Will default to "Todo"
+   - Save the issue ID for status updates throughout the workflow
+
 1. Review previous solutions in `lib/years/year2024/` or `lib/years/year2025/` depending on what year you are working on:
    - `day01.dart` - number parsing
    - `day02.dart` - list processing
@@ -20,6 +28,11 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 
 1. Run scaffold: `dart tools/scaffold_day.dart [YEAR] X` (use the confirmed year, not a placeholder)
    Creates solver, test, and input placeholder files. Follow the printed instructions (from scaffold output) to add inputs to the new example file.
+
+1. Update Linear issue status to "In Progress":
+   - Use the Linear issue ID from step 4
+   - Update the issue state to "In Progress"
+   - This marks the day as actively being worked on
 
 1. Implement `_solvePart1()` using patterns from similar previous days.
 
@@ -47,5 +60,15 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
      - Key algorithms or concepts used
      - Brief summary of the solution approach
      - Example: `git commit -m "Day X: Puzzle Title - Algorithm/Concept Used\n\nBrief description of solution approach and key insights."`
-   - Push to GitHub: `git push origin main`
+   - (Optional) Create a pull request to test the "In Review" workflow:
+     - Create a branch: `git checkout -b day-[YEAR]-[X]`
+     - Commit the changes on the branch
+     - Push the branch: `git push origin day-[YEAR]-[X]`
+     - Create a PR via GitHub (or ask the developer to create one)
+     - Update Linear issue status to "In Review"
+     - After PR is merged (or if skipping PR), proceed to push to main
+   - Push to GitHub: `git push origin main` (or merge the PR if using PR workflow)
+   - Update Linear issue status to "Done":
+     - Use the Linear issue ID from step 4
+     - Update the issue state to "Done"
    - Confirm the push was successful and provide the commit hash to the developer.
