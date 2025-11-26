@@ -59,6 +59,7 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
      - The day number and puzzle title
      - Key algorithms or concepts used
      - Brief summary of the solution approach
+     - **Important**: Do NOT include the actual solution values (answer numbers) in the commit message
      - Example: `git commit -m "Day X: Puzzle Title - Algorithm/Concept Used\n\nBrief description of solution approach and key insights."`
    - (Optional) Create a pull request to test the "In Review" workflow:
      - Create a branch: `git checkout -b day-[YEAR]-[X]`
