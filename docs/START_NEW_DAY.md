@@ -61,6 +61,8 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 
 1. Run: `dart tools/scaffold_day.dart [YEAR] X --part2`, then implement `_solvePart2()` using the Part Two puzzle description. Keep each solve function separate so that our tests continue to work as expected.
 
+If the prompt includes any new example cases, create new files the same naming convention the scaffold has already created for the part one but ending with part2.text instead.
+
 1. Inform the developer of our part two solution. 
 
 1. Review and document your work, tests, and files. Add documentation so that future days know what computer science concept was learned in this puzzle so future runs of this process can use a similar solution. This creates a great flywheel effect of learning and development.
