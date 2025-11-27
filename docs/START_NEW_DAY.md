@@ -46,11 +46,24 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
    - Update the issue state to "In Progress"
    - This marks the day as actively being worked on
 
+1. **Algorithm Recognition Phase** (NEW - Important!):
+   - Before coding, identify the problem type: graph traversal, dynamic programming, simulation, etc.
+   - If pattern is unclear, spend 5-10 minutes researching or thinking about the algorithm
+   - Trace through the smallest example manually to build a mental model
+   - Reference `docs/day15_reflection.md` for guidance on avoiding debugging loops
+   - If stuck on algorithm (not implementation) for >30 minutes, consider researching known approaches
+
 1. Implement `_solvePart1()` using patterns from similar previous days.
+   - Start with the simplest approach that works
+   - Add debug output early if the problem is complex
+   - If code complexity increases rapidly, pause and reconsider the approach
 
 1. Update test: Replace `'TODO'` in `test/years/year[YEAR]/dayXX_test.dart` with expected result from the puzzle example.
 
 1. Run tests and make edits until example passes: `dart test test/years/year[YEAR]/dayXX_test.dart`
+   - If stuck in a debugging loop (same fix multiple times, complexity increasing), STOP
+   - Step back and ask: "Is this the right algorithm?" or "Would a simpler approach work?"
+   - Consider referencing external solutions if algorithm is unclear (see `docs/day15_reflection.md`)
 
 1. Once the example works as expected, ask the developer to add their specific input file into the new txt file in `data/inputs`
 
@@ -60,6 +73,9 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
 1. If the solution fails the developer will inform you of it and work with you to debug the solution, if not the developer will place Part Two into the conversation
 
 1. Run: `dart tools/scaffold_day.dart [YEAR] X --part2`, then implement `_solvePart2()` using the Part Two puzzle description. Keep each solve function separate so that our tests continue to work as expected.
+   - Apply the same algorithm recognition process from step 7
+   - Part 2 often builds on Part 1, but may require a different approach
+   - If Part 2 seems significantly harder, verify you understand the problem correctly
 
 If the prompt includes any new example cases, create new files the same naming convention the scaffold has already created for the part one but ending with part2.text instead.
 
