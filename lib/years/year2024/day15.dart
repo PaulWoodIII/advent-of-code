@@ -406,7 +406,6 @@ class Year2024Day15 extends DaySolver {
     return safePushes.reversed.toList();
   }
 
-
   /// Attempts to move the robot in the given direction (Part 2 with wide boxes).
   bool _tryMoveRobotPart2(
     List<List<String>> grid,

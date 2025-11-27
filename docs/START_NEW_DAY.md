@@ -38,6 +38,8 @@ This prompt is used on a puzzle by puzzle basis, given a new Advent of Code puzz
    - `day04.dart` - grid/2D arrays
    Reference the most similar day for patterns, please note that advent of code is a learning tool where new puzzles build on what has been learned in previous puzzles. Documentation in our solve code will help us develop future days faster. 
 
+1. Before coding, think about the problem and its solution abstractly: "What type of problem is this?" (graph, dynamic programming, simulation, etc.), "What's the classic algorithm for this pattern?", "Have I seen this pattern before?"
+
 1. Run scaffold: `dart tools/scaffold_day.dart [YEAR] X` (use the confirmed year, not a placeholder)
    Creates solver, test, and input placeholder files. Follow the printed instructions (from scaffold output) to add inputs to the new example file.
 
